@@ -5,8 +5,22 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 module.exports = {
 	entry: './src/index.tsx',
 	output: {
-		path: path.join(__dirname, 'build'),
-		filename: 'index.bundle.js',
+		path: path.resolve(__dirname, 'build'),
+		filename: '[name].[contenthash].js',
+		clean: true,
+	},
+	optimization: {
+		moduleIds: 'deterministic',
+		runtimeChunk: 'single',
+		splitChunks: {
+			cacheGroups: {
+				vendor: {
+					test: /[\\/]node_modules[\\/]/,
+					name: 'vendors',
+					chunks: 'all',
+				},
+			},
+		},
 	},
 	mode: process.env.NODE_ENV || 'development',
 	resolve: {
