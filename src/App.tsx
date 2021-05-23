@@ -1,3 +1,11 @@
+import Button from "@my-lib/Button";
+import Container from "@my-lib/Container";
+
 export default function App(): JSX.Element {
-	return <p data-testid="app">{`What's up App!?`}</p>;
+	return (
+		<Container>
+			<p data-testid="app">{`What's up App!?`}</p>
+			<Button />
+		</Container>
+	);
 }

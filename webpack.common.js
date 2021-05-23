@@ -22,12 +22,11 @@ module.exports = {
 			},
 		},
 	},
-	mode: process.env.NODE_ENV || 'development',
 	resolve: {
 		extensions: ['.tsx', '.ts', '.js'],
-	},
-	devServer: {
-		contentBase: path.join(__dirname, 'src'),
+		alias: {
+			'@my-lib': path.resolve(__dirname, 'src/lib'),
+		},
 	},
 	module: {
 		rules: [
