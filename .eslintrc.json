@@ -1,0 +1,83 @@
+{
+	"env": {
+		"browser": true,
+		"node": true,
+		"es2021": true
+	},
+	"extends": [
+		"eslint:recommended",
+		"plugin:react/recommended",
+		"plugin:@typescript-eslint/recommended",
+		"plugin:react-hooks/recommended"
+	],
+	"parser": "@typescript-eslint/parser",
+	"parserOptions": {
+		"ecmaFeatures": {
+			"jsx": true
+		},
+		"ecmaVersion": 12,
+		"sourceType": "module"
+	},
+	"plugins": [
+		"react",
+		"@typescript-eslint",
+		"react-hooks"
+	],
+	"rules": {
+		"no-unused-vars": "off",
+		"no-tabs": "off",
+		"indent": "off",
+		"no-console": ["error", { "allow": ["warn", "error"] }],
+		"@typescript-eslint/indent": ["error", "tab", {
+			"SwitchCase": 1
+		}],
+		"semi": ["error", "always"],
+		"space-before-function-paren": ["error", {
+			"anonymous": "never",
+			"named": "never",
+			"asyncArrow": "always"
+		}],
+		"@typescript-eslint/no-unused-vars": [
+			"error",
+			{
+				"vars": "all",
+				"args": "after-used",
+				"ignoreRestSiblings": false
+			}
+		],
+		"@typescript-eslint/explicit-function-return-type": [
+			"error",
+			{
+				"allowExpressions": true,
+				"allowTypedFunctionExpressions": true
+			}
+		],
+		"@typescript-eslint/explicit-member-accessibility": "off",
+		"@typescript-eslint/prefer-interface": "off",
+		"react-hooks/rules-of-hooks": "error",
+		"react-hooks/exhaustive-deps": "warn",
+		"react/prop-types": "off",
+		"curly": ["error", "all"],
+		"no-use-before-define": "off",
+		"@typescript-eslint/no-use-before-define": [
+			"error",
+			{
+				"functions": false
+			}
+		],
+		"@typescript-eslint/member-delimiter-style": "error",
+		"no-multiple-empty-lines": ["error", { "max": 1, "maxBOF": 0 }],
+		"comma-dangle": ["error", "always-multiline"],
+
+		/*
+		 * Since React 17 we dont need to import React so turning those rules off
+		**/
+		"react/jsx-uses-react": "off",
+		"react/react-in-jsx-scope": "off"
+	},
+	"settings": {
+		"react": {
+			"version": "detect"
+		}
+	}
+}
